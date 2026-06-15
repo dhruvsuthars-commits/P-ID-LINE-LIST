@@ -20,4 +20,4 @@ ENV PORT=8080
 EXPOSE ${PORT}
 
 # Use Gunicorn for production
-CMD ["gunicorn", "-w", "2", "-k", "gthread", "--threads", "4", "-b", ":${PORT}", "app:app"]
+CMD ["sh", "-c", "gunicorn -w 2 -k gthread --threads 4 -b :${PORT} app:app"]
