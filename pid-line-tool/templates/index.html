@@ -114,6 +114,7 @@
 
     .dropzone{border:1.5px dashed rgba(255,255,255,0.12);border-radius:10px;padding:18px;text-align:center;cursor:pointer;transition:all 0.2s;background:rgba(0,0,0,0.2)}
     .dropzone:hover,.dropzone.drag-over{border-color:rgba(124,58,237,0.6);background:rgba(124,58,237,0.06)}
+    .dropzone:focus-visible{outline:2px solid var(--violet-l);outline-offset:2px;border-color:var(--violet-l);background:rgba(124,58,237,0.06)}
     .dropzone svg{margin-bottom:6px;opacity:0.5}
     .dropzone .dz-hint{font-size:12px;color:var(--muted);margin-bottom:2px}
     .dz-name{font-family:var(--mono);font-size:11px;color:var(--violet-l);margin-top:6px;min-height:16px}
@@ -309,7 +310,9 @@
           <div class="status-badge sb-warn" id="tplBadge">NO FILE</div>
         </div>
         <p>Upload your <code>Linelist_reference.xls/.xlsx</code> once. Rows 1–6 are preserved; data writes from row 7 downward.</p>
-        <div class="dropzone" id="tplZone" onclick="document.getElementById('tplInp').click()"
+        <div class="dropzone" id="tplZone" tabindex="0" role="button" aria-label="Upload Linelist Template"
+          onclick="document.getElementById('tplInp').click()"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('tplInp').click()}"
           ondragover="onDragOver(event,'tplZone')" ondragleave="onDragLeave('tplZone')"
           ondrop="onDrop(event,'tplInp','tplZone','tplName')">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--violet-l)" stroke-width="1.8" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
@@ -330,7 +333,9 @@
           <div class="ucard-title">Upload AutoCAD Export</div>
         </div>
         <p>Your <code>.xlsx</code> file must contain a <code>LINE</code> column. Format: <code>FluidCode-SeqNo-Size-Class-Insulation</code></p>
-        <div class="dropzone" id="lineZone" onclick="document.getElementById('lineInp').click()"
+        <div class="dropzone" id="lineZone" tabindex="0" role="button" aria-label="Upload AutoCAD Export"
+          onclick="document.getElementById('lineInp').click()"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('lineInp').click()}"
           ondragover="onDragOver(event,'lineZone')" ondragleave="onDragLeave('lineZone')"
           ondrop="onDrop(event,'lineInp','lineZone','lineName')">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pink-l)" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
@@ -355,7 +360,9 @@
           <div class="ucard-title">Upload Multiple Files</div>
         </div>
         <p>Upload <strong>multiple</strong> <code>.xlsx</code> files to merge them into a single output. All files must contain a <code>LINE</code> column.</p>
-        <div class="dropzone" id="multiZone" onclick="document.getElementById('multiInp').click()"
+        <div class="dropzone" id="multiZone" tabindex="0" role="button" aria-label="Upload Multiple Files"
+          onclick="document.getElementById('multiInp').click()"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('multiInp').click()}"
           ondragover="onDragOver(event,'multiZone')" ondragleave="onDragLeave('multiZone')"
           ondrop="onDropMulti(event,'multiInp','multiZone','multiName')">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pink-l)" stroke-width="1.8" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
