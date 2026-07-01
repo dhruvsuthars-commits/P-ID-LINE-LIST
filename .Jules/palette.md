@@ -1,0 +1,3 @@
+## 2024-05-14 - Keyboard Accessible Custom Dropzones
+**Learning:** Custom `div`-based drag-and-drop zones (`.dropzone`) are inaccessible to keyboard and screen reader users by default. Mouse users can click them to trigger a hidden file input, but keyboard users cannot focus or activate them.
+**Action:** When building custom dropzones, always add `role="button"`, `tabindex="0"`, an `aria-label`, and an `onkeydown` handler for `Enter` and `Space` keys. Additionally, map the `.dropzone:hover` CSS state to `.dropzone:focus-visible` (and include `outline:none` if desired) so keyboard navigation produces the same visual feedback.
